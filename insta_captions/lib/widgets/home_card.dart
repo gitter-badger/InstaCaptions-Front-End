@@ -19,9 +19,11 @@ class HomeCard extends StatelessWidget{
     ]);
     // TODO: implement build
     return InkWell(
-      onTap: () => Navigator.of(context).pushNamed('/'),
+      onTap: () => Navigator.of(context).pushNamed(goToRoute),
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+        alignment: Alignment.center,
+        margin: EdgeInsets.symmetric(vertical: 25, horizontal: 15),
+        height: 300,
         width: double.infinity,
         child: Card(
           shape: RoundedRectangleBorder(
@@ -38,17 +40,16 @@ class HomeCard extends StatelessWidget{
                   ),
                   child: Image.asset(
                     imagePath,
-                    fit: BoxFit.fill,
+                    fit: BoxFit.fitHeight,
                   ),
                 ),
               ),
               Positioned(
-                bottom: 25,
-                top: 275,
+                bottom: 15,
+                top: 190,
                 right: 0,
                 left: 0,
                 child: Container(
-                  height: MediaQuery.of(context).size.height,
                   width: 300,
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   alignment: Alignment.center,

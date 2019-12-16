@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:insta_captions/screens/captions_screen.dart';
 import 'package:insta_captions/widgets/app_drawer.dart';
 import 'package:insta_captions/widgets/home_card.dart';
+import 'package:insta_captions/screens/about_us.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,7 +20,8 @@ class MyApp extends StatelessWidget {
       theme: myTheme,
       home: Home(),
       routes: {
-
+        CaptionsScreen.routeName: (ctx) => CaptionsScreen(),
+        AboutUs.routeName: (ctx) => AboutUs(),
       },
     );
   }
@@ -40,15 +43,16 @@ class Home extends StatelessWidget {
       drawer: AppDrawer(appBar),
       backgroundColor: Theme.of(context).primaryColor,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           HomeCard(
               cardText: "Open Camera",
               imagePath: "android/assets/images/camera.png",
-              goToRoute: null),
+              goToRoute: CaptionsScreen.routeName),
           HomeCard(
               cardText: "Select a Photo",
               imagePath: "android/assets/images/files.png",
-              goToRoute: null),
+              goToRoute: CaptionsScreen.routeName),
         ],
       ),
     );

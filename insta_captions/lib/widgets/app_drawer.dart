@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_captions/screens/about_us.dart';
 
 class AppDrawer extends StatelessWidget {
   final AppBar appBar;
@@ -27,12 +28,12 @@ class AppDrawer extends StatelessWidget {
                           MediaQuery.of(context).size.height * 0.07) *
                       0.5,
               alignment: Alignment.center,
-              child: Text("Hello"),
-//              child: Image.asset(
-//                'android/assets/images/Flat-Film-Logo-Design.jpeg',
-//                width: double.infinity,
-//                fit: BoxFit.fill,
-//              ),
+
+              child: Image.asset(
+                'android/assets/images/appdrawerimage.png',
+                width: double.infinity,
+                fit: BoxFit.fill,
+              ),
             ),
             Container(
               height: MediaQuery.of(context).orientation == Orientation.portrait
@@ -78,7 +79,7 @@ class AppDrawer extends StatelessWidget {
                   ),
                   Divider(),
                   InkWell(
-                    onTap: () {},
+                    onTap: () => Navigator.of(context).pushNamed(AboutUs.routeName),
                     child: ListTile(
                       leading: Icon(
                         Icons.info_outline,
