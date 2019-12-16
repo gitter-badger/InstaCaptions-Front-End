@@ -50,7 +50,7 @@ class AppDrawer extends StatelessWidget {
                 physics: BouncingScrollPhysics(),
                 children: <Widget>[
                   InkWell(
-                    onTap: () {},
+                    onTap: () => Navigator.of(context).pushNamed('/'),
                     child: ListTile(
                       leading: Icon(
                         Icons.home,
