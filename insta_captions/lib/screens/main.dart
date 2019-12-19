@@ -3,6 +3,8 @@ import 'package:insta_captions/screens/captions_screen.dart';
 import 'package:insta_captions/widgets/app_drawer.dart';
 import 'package:insta_captions/widgets/home_card.dart';
 import 'package:insta_captions/screens/about_us.dart';
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,6 +30,14 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
+  Future<void> captureImage(ImageSource imageSource,BuildContext context) async {
+    try {
+      File imageFile = await ImagePicker.pickImage(source: imageSource);
+    } catch (e) {
+      print(e);
+    }
+    Navigator.of(context).pushNamed(CaptionsScreen.routeName);
+  }
   @override
   Widget build(BuildContext context) {
     final appBar = AppBar(
@@ -48,13 +58,14 @@ class Home extends StatelessWidget {
           HomeCard(
               cardText: "Open Camera",
               imagePath: "android/assets/images/camera.png",
-              goToRoute: CaptionsScreen.routeName),
+              onTap : () => captureImage(ImageSource.camera,context)),
           HomeCard(
               cardText: "Select a Photo",
               imagePath: "android/assets/images/files.png",
-              goToRoute: CaptionsScreen.routeName),
+              onTap : () => captureImage(ImageSource.gallery,context)),
         ],
       ),
     );
   }
 }
+
