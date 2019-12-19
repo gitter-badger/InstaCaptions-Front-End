@@ -4,12 +4,12 @@ import 'package:flutter/services.dart';
 class HomeCard extends StatelessWidget{
   final String cardText;
   final String imagePath;
-  final String goToRoute;
+  final Function onTap;
 
   HomeCard(
       {@required this.cardText,
         @required this.imagePath,
-        @required this.goToRoute});
+        @required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class HomeCard extends StatelessWidget{
     ]);
     // TODO: implement build
     return InkWell(
-      onTap: () => Navigator.of(context).pushNamed(goToRoute),
+      onTap: onTap,
       child: Container(
         alignment: Alignment.center,
         margin: EdgeInsets.symmetric(vertical: 25, horizontal: 15),
